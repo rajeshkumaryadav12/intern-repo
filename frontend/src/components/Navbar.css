@@ -1,0 +1,43 @@
+.navbar {
+  position: fixed; /* Fixed at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #007bff;
+  padding: 15px 20px;
+  color: white;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays above other elements */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds a shadow for better visibility */
+}
+
+.nav-left h2 {
+  margin: 0;
+  font-size: 24px;
+
+}
+
+.nav-right {
+  display: flex;
+  gap: 15px;
+  margin-right: 90px;
+}
+
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-right a:hover {
+  text-decoration: underline;
+}
+
+/* Add padding to the body to prevent content from hiding behind the navbar */
+body {
+  padding-top: 60px; /* Adjust based on navbar height */
+}
