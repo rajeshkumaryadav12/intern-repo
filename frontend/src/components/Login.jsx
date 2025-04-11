@@ -16,19 +16,22 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-  
+
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-  
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/auth/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+
       const data = await response.json();
-  
+
       if (response.ok) {
-        localStorage.setItem("token", data.token); // Store token after login
-        window.dispatchEvent(new Event("storage")); // Notify Navbar to update
+        localStorage.setItem("token", data.token);
+        window.dispatchEvent(new Event("storage"));
         navigate("/dashboard");
       } else {
         alert(data.message || "Login failed!");
@@ -38,7 +41,6 @@ const Login = () => {
       alert("Something went wrong!");
     }
   };
-  
 
   return (
     <div className="login-container">
@@ -47,7 +49,9 @@ const Login = () => {
         <table>
           <tbody>
             <tr>
-              <td><label>Email:</label></td>
+              <td>
+                <label>Email:</label>
+              </td>
               <td>
                 <input
                   type="email"
@@ -59,7 +63,9 @@ const Login = () => {
               </td>
             </tr>
             <tr>
-              <td><label>Password:</label></td>
+              <td>
+                <label>Password:</label>
+              </td>
               <td>
                 <input
                   type="password"
